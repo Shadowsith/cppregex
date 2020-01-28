@@ -1,10 +1,11 @@
-// +-----------------------------------------+
-// | CPPREGEX C++ STD::REGEX WRAPPER LIBRARY |
-// |  by Martín del Río (github.com/lartu)   |
-// +-----------------------------------------+
-// |     Released under the MIT License      |
-// |                  2019                   |
-// +-----------------------------------------+
+// +------------------------------------------------+
+// | CPPREGEX C++ STD::REGEX WRAPPER LIBRARY        |
+// |  by Martín del Río (github.com/lartu)          |
+// |  edited by Philip Mayer (github.com/Shadowith) |
+// +------------------------------------------------+
+// |        Released under the MIT License          |
+// |                  2019 - 2020                   |
+// +------------------------------------------------+
 
 #include <string>
 #include <regex>
