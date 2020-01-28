@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/cbvkib6igjkrpx19?svg=true)](https://ci.appveyor.com/project/Shadowsith/cppregex)
+
 ![cppregex logo](https://raw.githubusercontent.com/Lartu/cppregex/master/logo.png)
 
 Cppregex is a very simple, single header file, easy to use **C++11** std::regex
