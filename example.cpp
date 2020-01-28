@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+using string = std::string;
 
 string myString;
 string regex1;
@@ -11,172 +11,168 @@ string regex3;
 
 int main(){
 
-    // -- regexMatch Examples --
+    // -- regex::match Examples --
     // Checks if a string matches a given regex.
-    cout << "regexMatch" << endl;
+    std::cout << "regex::match" << std::endl;
 
     myString = "Hi there! How are you? Hi!";
     regex1 = "(Hi)(.*)(you?)(.*)";
     regex2 = "Potato";
     regex3 = ".*H.. are you..*";
 
-    cout << regexMatch(myString, regex1) << endl; // matches
-    cout << regexMatch(myString, regex2) << endl; // doesn't match
-    cout << regexMatch(myString, regex3) << endl; // matches
+    std::cout << regex::match(myString, regex1) << std::endl; // matches
+    std::cout << regex::match(myString, regex2) << std::endl; // doesn't match
+    std::cout << regex::match(myString, regex3) << std::endl; // matches
 
-
-
-    // -- regexContains Examples --
+    // -- regex::contains Examples --
     // Checks if a string contains a substring that matches
     // a given regex.
-    cout << endl << "regexContains" << endl;
+    std::cout << std::endl << "regex::contains" << std::endl;
 
     myString = "Hi there! How are you? Hi!";
     regex1 = "H.. are";
     regex2 = "\\!*";
     regex3 = "era";
 
-    cout << regexContains(myString, regex1) << endl; // contains
-    cout << regexContains(myString, regex2) << endl; // contains
-    cout << regexContains(myString, regex3) << endl; // doesn't contain
+    std::cout << regex::contains(myString, regex1) << std::endl; // contains
+    std::cout << regex::contains(myString, regex2) << std::endl; // contains
+    std::cout << regex::contains(myString, regex3) << std::endl; // doesn't contain
 
 
 
-    // -- regexIndex Examples --
+    // -- regex::index Examples --
     // Returns the position of the substring that matches the given regex,
     // -1 if none was found.
-    cout << endl << "regexIndex" << endl;
+    std::cout << std::endl << "regex::index" << std::endl;
 
     myString = "You are using cppregex~!";
     regex1 = "c[p\\+]*regex";
     regex2 = "not found!";
 
-    cout << regexIndex(myString, regex1) << endl; // will print 14
-    cout << regexIndex(myString, regex2) << endl; // will print -1
+    std::cout << regex::index(myString, regex1) << std::endl; // will print 14
+    std::cout << regex::index(myString, regex2) << std::endl; // will print -1
 
 
 
-    // -- regexIndices Examples --
+    // -- regex::indices Examples --
     // returns a vector of ints containing all the positions of the
     // substrings that match the given regex. Empty if none was found.
-    cout << endl << "regexIndices" << endl;
+    std::cout << std::endl << "regex::indices" << std::endl;
 
     myString = "Cppregex is awesome, don't you love c++regex?";
     regex1 = "[Cc][p\\+]*regex";
 
-    cout << regexIndices(myString, regex1).size() << endl; // will print 2
-    cout << regexIndices(myString, regex1)[0] << endl; // will print 0
-    cout << regexIndices(myString, regex1)[1] << endl; // will print 36
+    std::cout << regex::indices(myString, regex1).size() << std::endl; // will print 2
+    std::cout << regex::indices(myString, regex1)[0] << std::endl; // will print 0
+    std::cout << regex::indices(myString, regex1)[1] << std::endl; // will print 36
 
 
 
-    // -- regexIndexLength Examples --
+    // -- regex::indexLength Examples --
     // returns the position of the substring that matches the given regex,
     // and its length. <-1, 0> if none was found.
-    cout << endl << "regexIndexLength" << endl;
+    std::cout << std::endl << "regex::indexLength" << std::endl;
 
     myString = "You are using cppregex~!";
     regex1 = "c[p\\+]*regex";
     regex2 = "not found!";
 
-    cout << regexIndexLength(myString, regex1).first << endl; // will print 14
-    cout << regexIndexLength(myString, regex1).second << endl; // will print 8
-    cout << regexIndexLength(myString, regex2).first << endl; // will print -1
-    cout << regexIndexLength(myString, regex2).second << endl; // will print 0
+    std::cout << regex::indexLength(myString, regex1).first << std::endl; // will print 14
+    std::cout << regex::indexLength(myString, regex1).second << std::endl; // will print 8
+    std::cout << regex::indexLength(myString, regex2).first << std::endl; // will print -1
+    std::cout << regex::indexLength(myString, regex2).second << std::endl; // will print 0
 
 
 
-    // -- regexIndicesLengths Examples --
+    // -- regex::indicesLengths Examples --
     // returns a vector of pair<int, unsigned int> containing all the positions and lengths
     // of the substrings that match the given regex. Empty if none was found.
-    cout << endl << "regexIndicesLengths" << endl;
+    std::cout << std::endl << "regex::indicesLengths" << std::endl;
 
     myString = "Cppregex is awesome, don't you love c+++regex?";
     regex1 = "[Cc][p\\+]*regex";
 
-    cout << regexIndicesLengths(myString, regex1).size() << endl; // will print 2
-    cout << regexIndicesLengths(myString, regex1)[0].first << endl; // will print 0
-    cout << regexIndicesLengths(myString, regex1)[0].second << endl; // will print 8
-    cout << regexIndicesLengths(myString, regex1)[1].first << endl; // will print 36
-    cout << regexIndicesLengths(myString, regex1)[1].second << endl; // will print 9
+    std::cout << regex::indicesLengths(myString, regex1).size() << std::endl; // will print 2
+    std::cout << regex::indicesLengths(myString, regex1)[0].first << std::endl; // will print 0
+    std::cout << regex::indicesLengths(myString, regex1)[0].second << std::endl; // will print 8
+    std::cout << regex::indicesLengths(myString, regex1)[1].first << std::endl; // will print 36
+    std::cout << regex::indicesLengths(myString, regex1)[1].second << std::endl; // will print 9
 
 
 
     // -- regexSearch Examples --
     // returns the first substring in text that matches the passed regex.
     // Empty if the regex didn't match anything.
-    cout << endl << "regexSearch" << endl;
+    std::cout << std::endl << "regexSearch" << std::endl;
 
     myString = "Cppregex is awesome, don't you love c++regex?";
     regex1 = "[Cc][p\\+]*regex";
     regex2 = "llama";
 
-    cout << regexSearch(myString, regex1) << endl; // will print Cppregex
-    cout << regexSearch(myString, regex2) << endl; // will print ""
+    std::cout << regex::search(myString, regex1) << std::endl; // will print Cppregex
+    std::cout << regex::search(myString, regex2) << std::endl; // will print ""
 
 
 
     // -- regexSearchAll Examples --
     // returns a vector of strings containing all the substrings in text that
     // matched the passed regex. Empty if the regex didn't match anything.
-    cout << endl << "regexSearchAll" << endl;
+    std::cout << std::endl << "regexSearchAll" << std::endl;
 
     myString = "Cppregex is awesome, don't you love c++regex? I love cpppppregex!";
     regex1 = "[Cc][p\\+]*regex";
     regex2 = "llama";
 
-    cout << regexSearchAll(myString, regex1).size() << endl; // will print 3
-    cout << regexSearchAll(myString, regex1)[0] << endl; // will print Cppregex
-    cout << regexSearchAll(myString, regex1)[1] << endl; // will print c++regex
-    cout << regexSearchAll(myString, regex1)[2] << endl; // will print cpppppregex
-    cout << regexSearchAll(myString, regex2).size() << endl; // will print 0
+    std::cout << regex::searchAll(myString, regex1).size() << std::endl; // will print 3
+    std::cout << regex::searchAll(myString, regex1)[0] << std::endl; // will print Cppregex
+    std::cout << regex::searchAll(myString, regex1)[1] << std::endl; // will print c++regex
+    std::cout << regex::searchAll(myString, regex1)[2] << std::endl; // will print cpppppregex
+    std::cout << regex::searchAll(myString, regex2).size() << std::endl; // will print 0
 
 
 
     // -- regexBefore Examples --
     // returns all the text found before a regex match was found.
     // Empty if nothing matched the regex.
-    cout << endl << "regexBefore" << endl;
+    std::cout << std::endl << "regexBefore" << std::endl;
 
     myString = "My llama is very fluffy!";
     regex1 = "llama";
 
-    cout << regexBefore(myString, regex1) << endl; // will print "My "
+    std::cout << regex::before(myString, regex1) << std::endl; // will print "My "
 
 
 
     // -- regexAfter Examples --
     // returns all the text found after a regex match was found.
     // Empty if nothing matched the regex.
-    cout << endl << "regexAfter" << endl;
+    std::cout << std::endl << "regexAfter" << std::endl;
 
     myString = "My llama is very fluffy!";
     regex1 = "llama";
 
-    cout << regexAfter(myString, regex1) << endl; // will print " is very fluffy!"
+    std::cout << regex::after(myString, regex1) << std::endl; // will print " is very fluffy!"
 
     
 
     // -- regexReplace Examples --
     // returns a string with the first match of the regex in text replaced by newValue.
-    cout << endl << "regexReplace" << endl;
+    std::cout << std::endl << "regexReplace" << std::endl;
 
     myString = "My llama is very fluffy! I love my llama!";
     regex1 = "(l*)(ama)";
 
-    cout << regexReplace(myString, regex1, "cow") << endl;
+    std::cout << regex::replace(myString, regex1, "cow") << std::endl;
     // will print "My cow is very fluffy! I love my llama!"
-
-
 
     // -- regexReplaceAll Examples --
     // returns a string with all matches of the regex in text replaced by newValue.
-    cout << endl << "regexReplaceAll" << endl;
+    std::cout << std::endl << "regexReplaceAll" << std::endl;
 
     myString = "My llama is very fluffy! I love my llama!";
     regex1 = "(l*)(ama)";
 
-    cout << regexReplaceAll(myString, regex1, "cow") << endl;
+    std::cout << regex::replaceAll(myString, regex1, "cow") << std::endl;
     // will print "My cow is very fluffy! I love my cow!"
 
     return 0;
